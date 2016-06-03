@@ -6,7 +6,9 @@
 #include <opencv2\highgui.hpp>
 #include <opencv2\imgproc.hpp>
 
-#include "ps4eye.h"
+#include "ps4eye\ps4eye.h"
+#include "disparity\disparity.h"
+#include "stereo-calib\stereo_calib.h"
 
 using namespace std;
 using namespace cv;
@@ -71,7 +73,26 @@ int main() {
 
 				imshow("left", bgrL);
 				imshow("right", bgrR);
-				
+				waitKey(33);
+
+				Rbgr = testcalibrateStereoCamera(bgrL, bgrR);
+
+				//imshow("RimgL", Rbgr[0]);
+				//imshow("RimgR", Rbgr[1]);
+				//std::cout << "rectified!" << std::endl;
+				//waitKey(30);
+
+				// Calculate and show disparity map
+
+				//if (disparity_map(bgrL, bgrR) != 0) {
+				if (disparity_map(Rbgr[0], Rbgr[1]) != 0) {
+					std::cout << "Disparity_Calc_Error" << std::endl;
+					//eye->set_led_on();
+				}
+
+				//calibrateFromSavedImages2();
+				//calibrateInRealTime(bgrL, bgrR);
+
 				int keyCode =waitKey(1);
 			}
 		}

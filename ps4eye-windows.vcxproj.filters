@@ -18,15 +18,27 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ps4eye.cpp">
+    <ClCompile Include="ps4eye\ps4eye.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stereo-calib\stereo_calib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disparity\disparity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ps4eye.h">
+    <ClInclude Include="ps4eye\ps4eye.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ps4eye_regs.h">
+    <ClInclude Include="ps4eye\ps4eye_regs.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stereo-calib\stereo_calib.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="disparity\disparity.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
