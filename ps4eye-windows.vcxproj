@@ -155,15 +155,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="disparity\disparity.cpp" />
+    <ClCompile Include="features\features.cpp" />
     <ClCompile Include="ps4eye\ps4eye.cpp" />
+    <ClCompile Include="rmatcher\rmatcher.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="stereo-calib\stereo_calib.cpp" />
+    <ClCompile Include="stereo-match\stereo-match.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="disparity\disparity.h" />
+    <ClInclude Include="features\features.h" />
     <ClInclude Include="ps4eye\ps4eye.h" />
     <ClInclude Include="ps4eye\ps4eye_regs.h" />
+    <ClInclude Include="rmatcher\rmatcher.h" />
     <ClInclude Include="stereo-calib\stereo_calib.h" />
+    <ClInclude Include="stereo-match\stereo-match.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

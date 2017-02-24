@@ -7,14 +7,22 @@
 #include <opencv2\imgproc.hpp>
 
 #include "ps4eye\ps4eye.h"
-#include "disparity\disparity.h"
-#include "stereo-calib\stereo_calib.h"
+#include "features\features.h"
+#include "stereo-match\stereo-match.h"
+//#include "disparity\disparity.h"
+//#include "stereo-calib\stereo_calib.h"
 
 using namespace std;
 using namespace cv;
 using namespace ps4eye;
 
 bool isRunning = true;
+int ndisp = 6, wsize = 15, ndisp_max = 20, wsize_max = 100;
+
+void on_trackbar(int, void*)
+{
+	cout << "ndisp : " << ndisp << " wsize : " << wsize << endl;
+}
 
 void update() {
 	while (isRunning) {
@@ -24,7 +32,7 @@ void update() {
 }
 
 int main() {
-	Mat yuv, yuvL, yuvR, bgr, bgrL, bgrR;
+	Mat yuv, yuvL, yuvR, bgr, bgrL, bgrR, gbgrL, gbgrR;
 	vector<Mat> Rbgr;
 
 	ps4eye::PS4EYECam::PS4EYERef eye;
@@ -61,7 +69,7 @@ int main() {
 			if (isNewFrame) {
 				cout << isNewFrame << endl;
 
-				//eye->check_ff71();
+				eye->check_ff71();
 				frame = eye->getLastVideoFramePointer();
 
 				//		yuv.data = frame->videoLeftFrame;
@@ -72,24 +80,31 @@ int main() {
 				cvtColor(yuvR, bgrR, COLOR_YUV2BGRA_YUY2);
 
 				imshow("left", bgrL);
-				imshow("right", bgrR);
-				waitKey(33);
+				imshow("right", bgrR); 
 
-				Rbgr = testcalibrateStereoCamera(bgrL, bgrR);
-
-				//imshow("RimgL", Rbgr[0]);
-				//imshow("RimgR", Rbgr[1]);
-				//std::cout << "rectified!" << std::endl;
+				cvtColor(bgrL, gbgrL, CV_BGR2GRAY);	//color_mode
+				cvtColor(bgrR, gbgrR, CV_BGR2GRAY);
+				//imwrite("E:\\bgrL2.png", bgrL);
 				//waitKey(30);
-
+				//imwrite("E:\\bgrR2.png", bgrR);
+				//waitKey(33);
+				/*
+				createTrackbar("ndisparities", "left", &ndisp, ndisp_max, on_trackbar);
+				createTrackbar("SADWindowSize", "right", &wsize, wsize_max, on_trackbar);
+				*/
+				//Rbgr = testcalibrateStereoCamera(bgrL, bgrR);
+				
+				//stereomatch(bgrL, bgrR);
+				get_features(bgrL, bgrR);
+				
 				// Calculate and show disparity map
-
+				/*
 				//if (disparity_map(bgrL, bgrR) != 0) {
-				if (disparity_map(Rbgr[0], Rbgr[1]) != 0) {
+				if (disparity_map(Rbgr[0], Rbgr[1], ndisp, wsize) != 0) {
 					std::cout << "Disparity_Calc_Error" << std::endl;
 					//eye->set_led_on();
 				}
-
+				*/
 				//calibrateFromSavedImages2();
 				//calibrateInRealTime(bgrL, bgrR);
 

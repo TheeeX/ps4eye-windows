@@ -27,6 +27,12 @@
     <ClCompile Include="disparity\disparity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stereo-match\stereo-match.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="features\features.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ps4eye\ps4eye.h">
@@ -39,6 +45,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="disparity\disparity.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stereo-match\stereo-match.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="features\features.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

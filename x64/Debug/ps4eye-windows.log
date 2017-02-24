@@ -5,6 +5,6 @@ c:\libusb\libusb\libusb.h(769): warning C4200: nonstandard extension used: zero-
   c:\libusb\libusb\libusb.h(769): note: Cannot generate copy-ctor or copy-assignment operator when UDT contains a zero-sized array
 c:\libusb\libusb\libusb.h(1262): warning C4200: nonstandard extension used: zero-sized array in struct/union
   c:\libusb\libusb\libusb.h(1262): note: Cannot generate copy-ctor or copy-assignment operator when UDT contains a zero-sized array
-c:\users\karan\documents\visual studio 2015\projects\ps4eye-windows\ps4eye-windows\source.cpp(32): warning C4101: 'frame_rgb_left': unreferenced local variable
-c:\users\karan\documents\visual studio 2015\projects\ps4eye-windows\ps4eye-windows\source.cpp(33): warning C4101: 'videoFrame': unreferenced local variable
-  ps4eye-windows.vcxproj -> c:\users\karan\documents\visual studio 2015\Projects\ps4eye-windows\x64\Debug\ps4eye-windows.exe
+c:\users\karan\documents\visual studio 2015\projects\ps4eye-windows\ps4eye-windows\source.cpp(40): warning C4101: 'frame_rgb_left': unreferenced local variable
+c:\users\karan\documents\visual studio 2015\projects\ps4eye-windows\ps4eye-windows\source.cpp(41): warning C4101: 'videoFrame': unreferenced local variable
+  ps4eye-windows.vcxproj -> C:\Users\karan\Documents\Visual Studio 2015\Projects\ps4eye-windows\x64\Debug\ps4eye-windows.exe

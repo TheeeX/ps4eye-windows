@@ -14,7 +14,7 @@ using namespace cv;
 const char *windowDisparity = "Disparity";
 
 
-int disparity_map(Mat imgLeft, Mat imgRight)
+int disparity_map(Mat imgLeft, Mat imgRight, int ndisparities, int SADWindowSize)
 {
 	cvtColor(imgLeft, imgLeft, CV_BGR2GRAY);
 	cvtColor(imgRight, imgRight, CV_BGR2GRAY);
@@ -49,8 +49,12 @@ int disparity_map(Mat imgLeft, Mat imgRight)
 	}
 
 	//-- 2. Call the constructor for StereoBM
-	int ndisparities = 96;	/* 16 * 4;   /**< Range of disparity */
-	int SADWindowSize = 15; /**< Size of the block window. Must be odd */
+	//int ndisparities = 96;	/* 16 * 4;   /**< Range of disparity */
+	//int SADWindowSize = 15; /**< Size of the block window. Must be odd */
+	if (SADWindowSize % 2 == 0) {
+		SADWindowSize++;
+	}
+	ndisparities = ndisparities * 16;
 
 	Ptr<StereoBM> sbm = StereoBM::create(ndisparities, SADWindowSize);
 
